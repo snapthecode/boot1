@@ -1,9 +1,11 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/board
-    username: pdc
-    password: qkrehdcks
-    driver-class-name: org.h2.Driver
+    hikari:
+#      url: jdbc:h2:tcp://localhost/board
+      username: pdc
+      password: qkrehdcks
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:tcp://localhost/board
   jpa:
     hibernate:
       ddl-auto: update

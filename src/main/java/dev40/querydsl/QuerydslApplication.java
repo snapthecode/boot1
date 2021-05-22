@@ -22,7 +22,7 @@ public class QuerydslApplication {
     private static void startH2Server() {
         try {
             String absolutePath = new File("./db").getAbsolutePath();
-            Server h2Server = Server.createTcpServer("-ifNotExists", "-baseDir", absolutePath).start();
+            Server h2Server = Server.createTcpServer("-tcp", "-tcpAllowOthers", "-ifNotExists","-tcpPort", 8001+"","-key", "-baseDir", absolutePath).start();
             if (h2Server.isRunning(true)) {
                 log.info("H2 server was started and is running.");
             } else {
@@ -32,5 +32,6 @@ public class QuerydslApplication {
             throw new RuntimeException("Failed to start H2 server: ", e);
         }
     }
+
 
 }
